@@ -42400,8 +42400,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0
         value: 28.01577
-        inSlope: 0.00006866455
-        outSlope: 0.00006866455
+        inSlope: 0
+        outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334

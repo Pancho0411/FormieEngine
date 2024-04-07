@@ -1,28 +1,28 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.LightAnchor;
 
 public class DownDashPlayerState : PlayerState
 {
     float camSpeed;
     public float camSpeedInterpolationDuration = 0.5f;
+    private int curDirection;
 
     public override void Enter(Player player)
     {
         player.ChangeBounds(0);
         player.PlayAudio(player.audios.dash, 1f);
         camSpeed = player.camera.maxSpeed;
+        curDirection = player.direction;
 
-        if (player.input.dashAction)
-        {
-            // Apply boost speed based on direction
-            player.velocity.y = player.stats.dashSpeed;
-        }
+        player.velocity.y -= player.stats.downDashSpeed;
+        player.velocity.x = 0;
     }
 
     public override void Step(Player player, float deltaTime)
     {
-        player.UpdateDirection(player.input.horizontal);
+        //player.UpdateDirection(player.input.horizontal);
         player.HandleSlopeFactor(deltaTime);
         player.HandleAcceleration(deltaTime);
         player.HandleFriction(deltaTime);
@@ -31,21 +31,13 @@ public class DownDashPlayerState : PlayerState
         player.camera.maxSpeed = 200;
 
         // Check if the player is grounded
-        if (player.grounded && player.input.dashAction)
-        {
-            player.state.ChangeState<DashPlayerState>();
-        }
-        else if (player.grounded && !player.input.dashAction)
+        if (player.grounded)
         {
             player.state.ChangeState<WalkPlayerState>();
         }
-        else if (!player.grounded && player.input.jumpAction && player.input.vertical < 0)
-        {
-            player.state.ChangeState<DownDashPlayerState>();
-        }
 
         // Clamp velocity to a maximum value
-        player.velocity.x = Mathf.Clamp(player.velocity.x, -player.stats.maxSpeed, player.stats.maxSpeed);
+        player.velocity.y = Mathf.Clamp(player.velocity.y, -player.stats.maxSpeed, player.stats.maxSpeed);
     }
 
     public override void Exit(Player player)

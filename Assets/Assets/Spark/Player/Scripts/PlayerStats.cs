@@ -33,7 +33,15 @@ public class PlayerStats : ScriptableObject
 
     [Header("Dash")]
     public float dashSpeed;
+    public float downDashSpeed;
 
     [Header("DownStomp")]
     public float downMultiplier;
+
+    [Header("Attack")]
+    public float cooldownTime;
+    public float lastPressedTime;
+    public float numOfPresses;
+    public float maxPresses;
+    public float maxAirPresses;
 }

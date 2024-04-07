@@ -74,8 +74,9 @@ public class PlayerInput
 
     private void UpdateDashAction()
     {
-        if (CrossPlatformInputManager.GetButton(dashName))
+        if (CrossPlatformInputManager.GetAxisRaw(dashName) > 0)
         {
+            //Debug.Log("Dash pressed");
             if (!dashAction)
             {
                 dashAction = true;
@@ -100,6 +101,7 @@ public class PlayerInput
             {
                 attackAction = true;
                 attackActionDown = true;
+                attackActionUp = false;
             }
         }
         else
@@ -108,6 +110,7 @@ public class PlayerInput
             {
                 attackAction = false;
                 attackActionUp = true;
+                attackActionDown = false;
             }
         }
     }

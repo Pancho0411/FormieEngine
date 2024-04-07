@@ -14,7 +14,7 @@ public class PauseController : MonoBehaviour
     public GameObject confirmUI;
     public GameObject optionsUI;
     //public GameObject mobileUI;
-    public int index = 0;
+    public string index;
 
     void Start()
     {
@@ -88,8 +88,16 @@ public class PauseController : MonoBehaviour
 
             //add save feature later
 
-            //load main menu, by default is first scene
-            SceneManager.LoadSceneAsync(index);
+            //load a scene, if no name quit the game
+            if (!string.IsNullOrEmpty(index))
+            {
+                SceneManager.LoadScene(index);
+            }
+            else
+            {
+                Debug.Log("Invalid stage scene. Quitting the application.");
+                Application.Quit();
+            }
         }
     }
 

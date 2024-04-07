@@ -29,8 +29,14 @@ MonoBehaviour:
   minSpeedToBrake: 8
   turnSpeed: 1
   airAcceleration: 14
-  gravity: 25.25
+  gravity: 23
   minJumpHeight: 8
   maxJumpHeight: 13
   dashSpeed: 10
+  downDashSpeed: 20
   downMultiplier: 2
+  cooldownTime: 0.6
+  lastPressedTime: 40.76016
+  numOfPresses: 0
+  maxPresses: 5
+  maxAirPresses: 3

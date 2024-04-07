@@ -26,6 +26,9 @@ public class Player : PlayerMotor
     //public GameObject UI;
     public bool goal;
 
+    public bool attackActionHandled = false; // Flag to track whether attack action has been handled during current state
+    public bool attackPressed = false; // Flag to track whether attack input has been pressed multiple times within AttackPlayerState
+
     private float idleTimer = 0f;
     public float idleTimeThreshold;
 
@@ -50,6 +53,8 @@ public class Player : PlayerMotor
     public bool halfGravity { get; set; }
     public bool invincible { get; set; }
     public bool dead { get; set; }
+
+    public bool isDashing { get; set; }
 
     public float invincibleTimer { get; set; }
     public int direction { get; private set; }

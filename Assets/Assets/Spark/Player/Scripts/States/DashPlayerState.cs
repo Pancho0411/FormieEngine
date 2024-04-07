@@ -5,19 +5,20 @@ public class DashPlayerState : PlayerState
 {
     float camSpeed;
     public float camSpeedInterpolationDuration = 0.5f;
+    private int curDirection;
 
     public override void Enter(Player player)
     {
-        player.attacking = true;
         player.ChangeBounds(0);
         player.PlayAudio(player.audios.dash, 1f);
         camSpeed = player.camera.maxSpeed;
+        curDirection = player.direction;
+        player.attacking = false;
 
-        if (player.velocity.x == 0)
-        {
-            // Apply boost speed based on direction
-            player.velocity.x = player.stats.dashSpeed * player.direction;
-        }
+        player.velocity.x = player.stats.dashSpeed * player.direction;
+
+        // Set isDashing flag to true when entering the dash state
+        player.isDashing = true;
     }
 
     public override void Step(Player player, float deltaTime)
@@ -31,30 +32,26 @@ public class DashPlayerState : PlayerState
         player.camera.maxSpeed = 200;
 
         // Check if the player is grounded
-        if (player.grounded & player.attacking)
+        if (player.grounded && player.isDashing)
         {
-            // Check if the boost action is pressed and there is boost meter remaining
-            if (player.input.dashAction)
-            {
-                // Boost when action button is held down and there's boost meter remaining
-                player.velocity.x += player.input.horizontal * player.stats.dashSpeed * deltaTime;
-            }
-            else
-            {
-                player.attacking = false;
-                // If boost button is released or boost meter is empty, switch to another state
-                player.state.ChangeState<WalkPlayerState>();
-            }
-
-            // Check for other actions like jumping or rolling
+            // Check for other actions like jumping
             if (player.input.jumpActionDown)
             {
                 player.HandleJump();
             }
+            //if you stop or switch direction, go back to walk state
+            else if (player.velocity.x == 0 || player.direction != curDirection)
+            {
+                player.state.ChangeState<WalkPlayerState>();
+            }
+            else if (player.input.jumpActionDown && player.input.dashActionDown)
+            {
+                player.HandleJump();
+            }
         }
-        else
+        else if (player.grounded && player.input.dashActionDown)
         {
-            player.state.ChangeState<WalkPlayerState>();
+            player.state.ChangeState<WalkPlayerState>(); // Transition to walk state
         }
 
         // Clamp velocity to a maximum value
@@ -64,6 +61,7 @@ public class DashPlayerState : PlayerState
 
     public override void Exit(Player player)
     {
+        player.isDashing = false;
         player.StartCoroutine(InterpolateCameraSpeed(player.camera, camSpeed, camSpeedInterpolationDuration));
     }
 
@@ -82,5 +80,14 @@ public class DashPlayerState : PlayerState
 
         // Ensure the camera speed is set to the target speed at the end
         camera.maxSpeed = targetSpeed;
+    }
+
+    public void onDashFinish(Player player)
+    {
+        player.isDashing = false;
+        if(player.input.horizontal == 0)
+        {
+            player.velocity.x = Mathf.Lerp(player.velocity.x, 0f, 4f * Time.deltaTime);
+        }
     }
 }

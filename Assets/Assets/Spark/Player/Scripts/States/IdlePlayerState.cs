@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class IdlePlayerState : PlayerState
 {
+
+    [SerializeField] private Animator anim;
+
     public override void Enter(Player player)
     {
 
@@ -25,7 +28,7 @@ public class IdlePlayerState : PlayerState
         {
             player.state.ChangeState<LookUpPlayerState>();
         }
-        else if (player.input.right || player.input.left)
+        else if (player.input.right || player.input.left || player.input.attackActionDown)
         {
             player.state.ChangeState<WalkPlayerState>();
         }
@@ -33,6 +36,11 @@ public class IdlePlayerState : PlayerState
 
     public override void Exit(Player player)
     {
-        player.rotation = player.originalRotation;
+
+    }
+
+    public void stopIdling(Player player)
+    {
+        player.state.ChangeState<WalkPlayerState> ();
     }
 }

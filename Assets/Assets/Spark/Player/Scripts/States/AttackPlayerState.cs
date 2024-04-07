@@ -1,18 +1,27 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackPlayerState : MonoBehaviour
+public class AttackPlayerState : PlayerState
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Enter(Player player)
     {
         
     }
+
+    public override void Step(Player player, float deltaTime)
+    {
+
+    }
+
+    public override void Exit(Player player)
+    {
+        
+    }
+
+    
 }

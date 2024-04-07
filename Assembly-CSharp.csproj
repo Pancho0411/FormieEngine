@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{2C7C1BE4-CAA9-AA5B-A281-CF360F20DCBC}</ProjectGuid>
+    <ProjectGuid>{DCC63D3D-359C-6217-CE41-3E78726DB661}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Assets\Game\FormieObject.cs" />
+    <Compile Include="Assets\IdleAnimationEventHandler.cs" />
     <Compile Include="Assets\Assets\Spark\Player\Scripts\States\SpringState.cs" />
     <Compile Include="Assets\Assets\Spark\Player\Scripts\States\DashPlayerState.cs" />
     <Compile Include="Assets\Assets\Game\TitleScreen.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Assets\Assets\Spark\Player\Scripts\PlayerStats.cs" />
     <Compile Include="Assets\Assets\Spark\Player\Scripts\PlayerSkin.cs" />
     <Compile Include="Assets\Assets\Spark\Player\Scripts\States\HurtPlayerState.cs" />
+    <Compile Include="Assets\AirAttackAnimationHandler.cs" />
     <Compile Include="Assets\Assets\Spark\Player\Scripts\PlayerState.cs" />
     <Compile Include="Assets\Assets\Spark\Player\Scripts\States\JumpPlayerState.cs" />
     <Compile Include="Assets\Assets\Spark\Player\Scripts\PlayerStateMachine.cs" />
@@ -79,10 +81,12 @@
     <Compile Include="Assets\Assets\Spark\Player\Scripts\PlayerPowers.cs" />
     <Compile Include="Assets\Assets\Game\FormieCollision.cs" />
     <Compile Include="Assets\Assets\Spark\Player\Scripts\States\CrouchPlayerState.cs" />
+    <Compile Include="Assets\AttackAnimationHandler.cs" />
     <Compile Include="Assets\Assets\Spark\Player\Scripts\States\ParryPlayerState.cs" />
     <Compile Include="Assets\Assets\Spark\Player\Scripts\States\WalkPlayerState.cs" />
     <Compile Include="Assets\Assets\Game\ScoreManager.cs" />
     <Compile Include="Assets\Assets\Spark\Player\Scripts\States\AirDashPlayerState.cs" />
+    <Compile Include="Assets\DashAnimationEventHandler.cs" />
     <Compile Include="Assets\Assets\Spark\Player\Scripts\PlayerCamera.cs" />
     <Compile Include="Assets\Assets\Spark\Player\Scripts\States\LookUpPlayerState.cs" />
     <Compile Include="Assets\Assets\Game\StageManager.cs" />
@@ -1119,7 +1123,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{535750B7-C051-AFB5-544D-AC9839E6AD9B}</Project>
+      <Project>{91F15149-3E9A-AE72-5DDB-2802A3833BCF}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
   </ItemGroup>

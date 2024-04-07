@@ -15,8 +15,20 @@ public class HurtPlayerState : PlayerState
 
         if (player.grounded)
         {
-            player.velocity.x = 0;
             player.state.ChangeState<WalkPlayerState>();
+        }
+        else
+        {
+            //jump to recover
+            if(player.input.jumpActionUp)
+            {
+                player.HandleJump();
+            }
+            //air dash to recover
+            else if (player.input.dashAction)
+            {
+                player.state.ChangeState<AirDashPlayerState>();
+            }
         }
     }
 

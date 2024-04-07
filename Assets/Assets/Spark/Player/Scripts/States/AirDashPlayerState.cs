@@ -6,23 +6,22 @@ public class AirDashPlayerState : PlayerState
 {
     float camSpeed;
     public float camSpeedInterpolationDuration = 0.5f;
-    
+    private int curDirection;
+
     public override void Enter(Player player)
     {
         player.ChangeBounds(0);
         player.PlayAudio(player.audios.dash, 1f);
         camSpeed = player.camera.maxSpeed;
+        curDirection = player.direction;
+        player.attacking = false;
 
-        if (player.input.dashAction)
-        {
-            // Apply boost speed based on direction
-            player.velocity.x = player.stats.dashSpeed * player.direction;
-        }
+        player.velocity.x = player.stats.dashSpeed * player.direction;
     }
     
     public override void Step(Player player, float deltaTime)
     {
-        player.UpdateDirection(player.input.horizontal);
+        //player.UpdateDirection(player.input.horizontal);
         player.HandleSlopeFactor(deltaTime);
         player.HandleAcceleration(deltaTime);
         player.HandleFriction(deltaTime);
@@ -31,15 +30,11 @@ public class AirDashPlayerState : PlayerState
         player.camera.maxSpeed = 200;
 
         // Check if the player is grounded
-        if (player.grounded && player.input.dashAction)
-        {
-            player.state.ChangeState<DashPlayerState>();
-        }
-        else if (player.grounded && !player.input.dashAction)
+        if(player.grounded)
         {
             player.state.ChangeState<WalkPlayerState>();
         }
-        else if(!player.grounded && player.input.jumpAction && player.input.vertical < 0)
+        else if(player.input.jumpAction && player.input.vertical < 0)
         {
             player.state.ChangeState<DownDashPlayerState>();
         }
