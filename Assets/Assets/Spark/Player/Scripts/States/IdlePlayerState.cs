@@ -28,9 +28,13 @@ public class IdlePlayerState : PlayerState
         {
             player.state.ChangeState<LookUpPlayerState>();
         }
-        else if (player.input.right || player.input.left || player.input.attackActionDown)
+        else if (player.input.right || player.input.left)
         {
             player.state.ChangeState<WalkPlayerState>();
+        }
+        else if (player.input.attackAction)
+        {
+            player.state.ChangeState<AttackPlayerState>();
         }
     }
 
@@ -41,6 +45,6 @@ public class IdlePlayerState : PlayerState
 
     public void stopIdling(Player player)
     {
-        player.state.ChangeState<WalkPlayerState> ();
+        player.state.ChangeState<WalkPlayerState>();
     }
 }

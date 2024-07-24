@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class AirAttackAnimationEventHandler : MonoBehaviour
 {
-    [SerializeField] private JumpPlayerState jumpPlayerState;
+    [SerializeField] private AttackPlayerState jumpPlayerState;
     [SerializeField] private Player player;
 
     void Start()
@@ -12,7 +12,7 @@ public class AirAttackAnimationEventHandler : MonoBehaviour
         if (playerObject != null)
         {
             // Get the AttackPlayerState component
-            jumpPlayerState = playerObject.GetComponent<JumpPlayerState>();
+            jumpPlayerState = playerObject.GetComponent<AttackPlayerState>();
             player = playerObject.GetComponent<Player>();
         }
     }

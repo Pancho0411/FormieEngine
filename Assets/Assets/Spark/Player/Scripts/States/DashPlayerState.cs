@@ -15,10 +15,16 @@ public class DashPlayerState : PlayerState
         curDirection = player.direction;
         player.attacking = false;
 
-        player.velocity.x = player.stats.dashSpeed * player.direction;
+        //this kills your momentum like official Spark games
+        //player.velocity.x = player.stats.dashSpeed * player.direction;
+
+        //this lets you keep your momentum and go faster
+        player.velocity.x += (player.stats.dashSpeed * player.direction);
 
         // Set isDashing flag to true when entering the dash state
         player.isDashing = true;
+
+        player.particles.dashLines.Play();
     }
 
     public override void Step(Player player, float deltaTime)
@@ -63,6 +69,7 @@ public class DashPlayerState : PlayerState
     {
         player.isDashing = false;
         player.StartCoroutine(InterpolateCameraSpeed(player.camera, camSpeed, camSpeedInterpolationDuration));
+        player.particles.dashLines.Stop();
     }
 
     private IEnumerator InterpolateCameraSpeed(PlayerCamera camera, float targetSpeed, float duration)

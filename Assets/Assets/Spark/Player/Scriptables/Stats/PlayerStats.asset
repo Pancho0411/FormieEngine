@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 562048cccb69dc044800455244f9f8dc, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
-  minAngleToRotate: 12
+  minAngleToRotate: 5
   minSpeedToSlide: 5
   minAngleToSlide: 45
   minAngleToFall: 90
@@ -23,7 +23,7 @@ MonoBehaviour:
   topSpeed: 13
   maxSpeed: 45
   acceleration: 7
-  deceleration: 60
+  deceleration: 25
   friction: 5.625
   slope: 15
   minSpeedToBrake: 8
@@ -32,11 +32,11 @@ MonoBehaviour:
   gravity: 23
   minJumpHeight: 8
   maxJumpHeight: 13
-  dashSpeed: 10
+  dashSpeed: 15
   downDashSpeed: 20
   downMultiplier: 2
   cooldownTime: 0.6
-  lastPressedTime: 40.76016
+  lastPressedTime: 37.21277
   numOfPresses: 0
   maxPresses: 5
   maxAirPresses: 3

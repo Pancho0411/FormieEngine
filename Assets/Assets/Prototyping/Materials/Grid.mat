@@ -29,7 +29,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - FrontNormal:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 5ba4071823943d441b75abb3b1e37443, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - SideDiffuse:
@@ -37,7 +37,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - SideNormal:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 5ba4071823943d441b75abb3b1e37443, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - TopDiffuse:
@@ -45,7 +45,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - TopNormal:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 5ba4071823943d441b75abb3b1e37443, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -108,7 +108,7 @@ Material:
     m_Floats:
     - Metallic: 1
     - Smoothness: 0.5
-    - Strength: 0
+    - Strength: 0.5
     - Tiling: 1
     - _AlphaClip: 0
     - _AlphaToMask: 0

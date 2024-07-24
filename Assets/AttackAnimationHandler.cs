@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class AttackAnimationEventHandler : MonoBehaviour
 {
-    [SerializeField] private WalkPlayerState walkPlayerState;
+    [SerializeField] private AttackPlayerState walkPlayerState;
     [SerializeField] private Player player;
 
     void Start()
@@ -12,7 +12,7 @@ public class AttackAnimationEventHandler : MonoBehaviour
         if (playerObject != null)
         {
             // Get the AttackPlayerState component
-            walkPlayerState = playerObject.GetComponent<WalkPlayerState>();
+            walkPlayerState = playerObject.GetComponent<AttackPlayerState>();
             player = playerObject.GetComponent<Player>();
         }
     }
@@ -53,6 +53,7 @@ public class AttackAnimationEventHandler : MonoBehaviour
         if (walkPlayerState != null)
         {
             walkPlayerState.return5();
+            Debug.Log("Return5 called");
         }
     }
 }
