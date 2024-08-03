@@ -1,5 +1,5 @@
 # FormieEngine
-![alt text]([http://url/to/img.png](https://cdn.imgchest.com/files/g4z9c6kb9a7.PNG))
+([http://url/to/img.png](https://cdn.imgchest.com/files/g4z9c6kb9a7.PNG))
 
  A Spark the Electric Jester conversion of the 2.5D Sonic fangame framework "Freedom Engine".
 
