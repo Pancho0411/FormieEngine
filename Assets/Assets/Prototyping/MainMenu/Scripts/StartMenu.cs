@@ -12,7 +12,7 @@ public class StartMenu : MonoBehaviour
 
     void Update()
     {
-        if (CrossPlatformInputManager.GetButton("Start"))
+        if (CrossPlatformInputManager.GetButton("Start") || CrossPlatformInputManager.GetButton("JumpAction"))
         {
             SceneManager.LoadSceneAsync(nextStage);
         }
