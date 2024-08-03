@@ -8,4 +8,5 @@ public class PlayerParticles
     public ParticleSystem landSmoke;
     public ParticleSystem runSmoke;
     public ParticleSystem dashLines;
+    public ParticleSystem downDashLines;
 }

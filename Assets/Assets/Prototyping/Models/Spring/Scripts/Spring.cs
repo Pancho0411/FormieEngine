@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[AddComponentMenu("Freedom Engine/Objects/Spring")]
+[AddComponentMenu("Formie Engine/Objects/Spring")]
 [RequireComponent(typeof(Collider))]
 public class Spring : MonoBehaviour
 {

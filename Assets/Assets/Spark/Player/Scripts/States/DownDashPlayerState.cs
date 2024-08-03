@@ -18,6 +18,11 @@ public class DownDashPlayerState : PlayerState
 
         player.velocity.y -= player.stats.downDashSpeed;
         player.velocity.x = 0;
+
+        // Set isDashing flag to true when entering the dash state
+        player.isDashing = true;
+
+        player.particles.downDashLines.Play();
     }
 
     public override void Step(Player player, float deltaTime)
@@ -43,6 +48,8 @@ public class DownDashPlayerState : PlayerState
     public override void Exit(Player player)
     {
         player.StartCoroutine(InterpolateCameraSpeed(player.camera, camSpeed, camSpeedInterpolationDuration));
+        player.isDashing = false;
+        player.particles.downDashLines.Stop();
     }
 
     private IEnumerator InterpolateCameraSpeed(PlayerCamera camera, float targetSpeed, float duration)

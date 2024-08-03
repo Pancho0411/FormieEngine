@@ -9,6 +9,7 @@ public class PlayerInput
     [SerializeField] private string jumpActionName = "JumpAction";
     [SerializeField] private string attackName = "Attack";
     [SerializeField] private string dashName = "Dash";
+    [SerializeField] private string startName = "Start";
 
     public float horizontal { get; private set; }
     public float vertical { get; private set; }
@@ -30,6 +31,10 @@ public class PlayerInput
     public bool attackActionDown { get; private set; }
     public bool attackActionUp { get; private set; }
 
+    public bool start { get; private set; }
+    public bool startDown { get; private set; }
+    public bool startUp { get; private set; }
+
     private bool controlLocked;
     private float unlockTimer;
 
@@ -39,6 +44,7 @@ public class PlayerInput
         UpdateJumpAction();
         UpdateDashAction();
         UpdateAttackAction();
+        UpdateStartAction();
     }
 
     private void UpdateAxes()
@@ -111,6 +117,26 @@ public class PlayerInput
                 attackAction = false;
                 attackActionUp = true;
                 attackActionDown = false;
+            }
+        }
+    }
+
+    private void UpdateStartAction()
+    {
+        if (CrossPlatformInputManager.GetButton(startName))
+        {
+            if (!start)
+            {
+                start = true;
+                startDown = true;
+            }
+        }
+        else
+        {
+            if (start)
+            {
+                start = false;
+                startUp = true;
             }
         }
     }

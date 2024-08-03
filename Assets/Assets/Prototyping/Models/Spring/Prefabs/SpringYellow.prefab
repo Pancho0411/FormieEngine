@@ -44,19 +44,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1247544190672034810}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c018eb79d15a6854fa541abdbda22187, type: 3}
+  m_Script: {fileID: 11500000, guid: f09a2b81f93de124a8b62363fe6f13dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 20
-  mesh: {fileID: 8566271567848262358}
-  springSound: {fileID: 8300000, guid: 0646a29796cd10140b56ecc9d103d7e7, type: 3}
+  force: 25
+  mesh: {fileID: 0}
+  springSound: {fileID: 0}
   snapPositionX: 0
   snapPositionY: 0
-  lockControl: 1
-  lockTime: 0.5
+  lockControl: 0
+  lockTime: 0
   hidden: 0
-  hideDistance: 3
-  hideTime: 0.5
+  hideDistance: 0
+  hideTime: 0
 --- !u!65 &2520685910929258905
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -16,7 +16,16 @@ public class AirDashPlayerState : PlayerState
         curDirection = player.direction;
         player.attacking = false;
 
+        //this kills your momentum like official Spark games. Recommended for the Air Dash
         player.velocity.x = player.stats.dashSpeed * player.direction;
+
+        //this lets you keep your momentum and go faster. Can give you a really slow Air Dash
+        //player.velocity.x += (player.stats.dashSpeed * player.direction);
+
+        // Set isDashing flag to true when entering the dash state
+        player.isDashing = true;
+
+        player.particles.dashLines.Play();
     }
     
     public override void Step(Player player, float deltaTime)
@@ -46,6 +55,8 @@ public class AirDashPlayerState : PlayerState
     public override void Exit(Player player)
     {
         player.StartCoroutine(InterpolateCameraSpeed(player.camera, camSpeed, camSpeedInterpolationDuration));
+        player.isDashing = false;
+        player.particles.dashLines.Stop();
     }
 
     private IEnumerator InterpolateCameraSpeed(PlayerCamera camera, float targetSpeed, float duration)

@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Text;
 using TMPro;
+using UnityEngine.SocialPlatforms.Impl;
 
 [AddComponentMenu("Formie Engine/Game/Score Manager")]
 public class ScoreManager : MonoBehaviour
@@ -26,15 +27,22 @@ public class ScoreManager : MonoBehaviour
 
     [Header("Score UI")]
     [SerializeField] private TMP_Text timeCounter = null;
-    [SerializeField] private TMP_Text healthCounter = null;
-    public TMP_Text finalScoreCounter = null;
+    [SerializeField] private TMP_Text scoreCounter = null;
+    [SerializeField] private Slider healthSlider = null;
+    [SerializeField] private Slider energySlider = null;
 
 
     private int milliseconds;
     private int seconds;
     private int minutes;
 
+    private int score;
+    private int bits;
+    private int bitsBonus;
     private int health;
+    private int energy;
+
+    private int timeBonus;
 
     public float time { get; set; }
     public bool stopTimer { get; set; }
@@ -48,7 +56,46 @@ public class ScoreManager : MonoBehaviour
         set
         {
             health = value;
-            healthCounter.text = health.ToString("D3");
+            healthSlider.value = health;
+        }
+    }
+
+    public int Energy
+    {
+        get { return energy; }
+        set
+        {
+            energy = value;
+            energySlider.value = energy;
+        }
+    }
+
+    public int Bits
+    {
+        get { return bits; }
+        set
+        {
+            bits = value;
+        }
+    }
+
+    //public int BitBonus
+    //{
+    //    get { return bitsBonus; }
+    //    set
+    //    {
+    //        bitsBonus = value;
+    //        bitsBonusCounter.text = bitsBonus.ToString();
+    //    }
+    //}
+
+    public int Score
+    {
+        get { return score; }
+        set
+        {
+            score = value;
+            scoreCounter.text = score.ToString();
         }
     }
 
@@ -57,6 +104,16 @@ public class ScoreManager : MonoBehaviour
         health = 6;
         time = 0;
     }
+
+    //public int TimeBonus
+    //{
+    //    get { return timeBonus; }
+    //    set
+    //    {
+    //        timeBonus = value;
+    //        timeBonusCounter.text = timeBonus.ToString();
+    //    }
+    //}
 
     private void Update()
     {
@@ -72,14 +129,7 @@ public class ScoreManager : MonoBehaviour
             if (milliseconds != oldMillisecond)
             {
                 timer.Length = 0;
-                timer.Append(digits[minutes / 10]);
-                timer.Append(digits[minutes % 10]);
-                timer.Append(digits[10]);
-                timer.Append(digits[seconds / 10]);
-                timer.Append(digits[seconds % 10]);
-                timer.Append(digits[11]);
-                timer.Append(digits[milliseconds / 10]);
-                timer.Append(digits[milliseconds % 10]);
+                timer.AppendFormat("{0:D2} : {1:D2} : {2:D2}", minutes, seconds, milliseconds);
                 timeCounter.text = timer.ToString();
             }
         }
@@ -88,7 +138,7 @@ public class ScoreManager : MonoBehaviour
     public void ResetTimer()
     {
         time = minutes = seconds = milliseconds = 0;
-        timeCounter.text = "00:00.00";
+        timeCounter.text = "00 : 00 : 00";
     }
 
     public void Die()
