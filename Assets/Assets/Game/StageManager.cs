@@ -14,7 +14,7 @@ public class StageManager : MonoBehaviour
         {
             if (instance == null)
             {
-                instance = FindObjectOfType<StageManager>();
+                instance = FindFirstObjectByType<StageManager>();
                 instance.StartSingleton();
             }
 
@@ -31,7 +31,8 @@ public class StageManager : MonoBehaviour
     [SerializeField] public GameObject scoreCard = null;
 
     [Header("Stage Settings")]
-    [SerializeField] private Player player = null;
+    private Player player = null;
+    [SerializeField] private GameObject playerPrefab;           //This is for debugging only. The player is automatically grabbed at start.
     [SerializeField] private string nextStage = "";
     public Rect bounds;
     public Rect goalBounds;
@@ -58,7 +59,8 @@ public class StageManager : MonoBehaviour
         {
             audio = gameObject.AddComponent<AudioSource>();
         }
-
+        playerPrefab = GameObject.FindGameObjectWithTag("Player");
+        player = playerPrefab.GetComponent<Player>();
         startPoint = player.transform.position;
         startRotation = player.transform.rotation;
         StartStage();

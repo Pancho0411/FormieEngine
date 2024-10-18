@@ -12,7 +12,7 @@ public class ObjectsManager : MonoBehaviour
         {
             if (instance == null)
             {
-                instance = FindObjectOfType<ObjectsManager>();
+                instance = FindFirstObjectByType<ObjectsManager>();
                 instance.StartSingleton();
             }
 
@@ -29,7 +29,7 @@ public class ObjectsManager : MonoBehaviour
 
     private void GetFormieObjects()
     {
-        foreach (FormieObject formieObject in FindObjectsOfType<FormieObject>())
+        foreach (FormieObject formieObject in FindObjectsByType<FormieObject>(FindObjectsSortMode.None))
         {
             objects.Add(formieObject);
         }

@@ -5,6 +5,9 @@ EditorUserSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 4
   m_ConfigSettings:
+    GraphicsSettingsInspector_UserSettings:
+      value: 18134705175a055722080a3115371d4a0d55006876786860616b0471b8b7656cacb72ba5a52a362c3c0ee63201181433fe3e101bf3250b06144ca74c24f1190708e016c213c61a52f91c12cac80fd8edd298e1e4d1fde2cacddeacbcc1fee7eef0e3b6faa69af9ceaeaaec81a6d2c2c8c8c4b2e5dfd5ccd3f8cf
+      flags: 0
     RecentlyUsedSceneGuid-0:
       value: 56000c5503575e0e59595e7014775a1414164d73297920672c2b4464b0b16c6e
       flags: 0
@@ -30,10 +33,10 @@ EditorUserSettings:
       value: 5a08575f5207595a0f5d59741173094444164f7d7d2a23317c7a4465bbe1646d
       flags: 0
     RecentlyUsedSceneGuid-8:
-      value: 010504025201510e0e5f5c7145740c444e161e7c2e7b76647d7a1b60b0b76d39
+      value: 53570d5250545c0a0f0c0e72137a06444e4f4e7d2a7a71627f7c1f6bb7e23068
       flags: 0
     RecentlyUsedSceneGuid-9:
-      value: 53570d5250545c0a0f0c0e72137a06444e4f4e7d2a7a71627f7c1f6bb7e23068
+      value: 010504025201510e0e5f5c7145740c444e161e7c2e7b76647d7a1b60b0b76d39
       flags: 0
     UnityRemoteDevice:
       value: 225f4d46245b0d4902070862342649191512
@@ -58,4 +61,6 @@ EditorUserSettings:
   m_VCHierarchyOverlayIcons: 1
   m_VCOtherOverlayIcons: 1
   m_VCAllowAsyncUpdate: 1
+  m_VCScanLocalPackagesOnConnect: 1
   m_ArtifactGarbageCollection: 1
+  m_CompressAssetsOnImport: 1
