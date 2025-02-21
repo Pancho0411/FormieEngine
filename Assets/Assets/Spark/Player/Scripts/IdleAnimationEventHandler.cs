@@ -4,11 +4,12 @@ public class IdleAnimationEventHandler : MonoBehaviour
 {
     [SerializeField] private IdlePlayerState idlePlayerState;
     [SerializeField] private Player player;
+    [SerializeField] private string playerName;
 
     void Start()
     {
         // Find the GameObject with the DashPlayerState script
-        GameObject playerObject = GameObject.Find("Spark Player"); // Change "Player" to the name of your player GameObject
+        GameObject playerObject = GameObject.Find(playerName); // Change "Player" to the name of your player GameObject
         if (playerObject != null)
         {
             // Get the DashPlayerState component

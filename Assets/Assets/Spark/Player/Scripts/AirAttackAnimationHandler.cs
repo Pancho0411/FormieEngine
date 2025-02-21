@@ -4,11 +4,12 @@ public class AirAttackAnimationEventHandler : MonoBehaviour
 {
     [SerializeField] private AttackPlayerState jumpPlayerState;
     [SerializeField] private Player player;
+    [SerializeField] private string playerName;
 
     void Start()
     {
         // Find the GameObject with the AttackPlayerState script
-        GameObject playerObject = GameObject.Find("Spark Player"); // Change "Player" to the name of your player GameObject
+        GameObject playerObject = GameObject.Find(playerName); // Change "Player" to the name of your player GameObject
         if (playerObject != null)
         {
             // Get the AttackPlayerState component

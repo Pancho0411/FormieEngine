@@ -9,6 +9,12 @@ using UnityStandardAssets.CrossPlatformInput;
 [RequireComponent(typeof(PlayerSkin))]
 public class Player : PlayerMotor
 {
+    [Header("Data Management")]
+    //this is the character's name
+    //this is used if you add more characters by the character manager
+    public string id;
+    public bool isUnlocked;
+
     [Header("Settings")]
     public bool disableInput;
     public bool disableSkinRotation;
@@ -23,7 +29,6 @@ public class Player : PlayerMotor
     public float rotation;
     public float originalRotation;
     public float originalCamSpeed;
-    //public GameObject UI;
     public bool goal;
 
     public bool attackActionHandled = false; // Flag to track whether attack action has been handled during current state

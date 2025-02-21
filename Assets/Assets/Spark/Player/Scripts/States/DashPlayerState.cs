@@ -38,7 +38,7 @@ public class DashPlayerState : PlayerState
         player.camera.maxSpeed = 200;
 
         // Check if the player is grounded
-        if (player.grounded && player.isDashing)
+        if (player.grounded)
         {
             // Check for other actions like jumping
             if (player.input.jumpActionDown)
@@ -54,10 +54,6 @@ public class DashPlayerState : PlayerState
             {
                 player.HandleJump();
             }
-        }
-        else if (player.grounded && player.input.dashActionDown)
-        {
-            player.state.ChangeState<WalkPlayerState>(); // Transition to walk state
         }
 
         // Clamp velocity to a maximum value
@@ -89,12 +85,9 @@ public class DashPlayerState : PlayerState
         camera.maxSpeed = targetSpeed;
     }
 
-    public void onDashFinish(Player player)
+    public void OnDashAnimationFinish(Player player)
     {
-        player.isDashing = false;
-        if(player.input.horizontal == 0)
-        {
-            player.velocity.x = Mathf.Lerp(player.velocity.x, 0f, 4f * Time.deltaTime);
-        }
+        player.velocity.x = Mathf.Lerp(player.velocity.x, 0f, 4f * Time.deltaTime);
+        player.state.ChangeState<WalkPlayerState>();
     }
 }

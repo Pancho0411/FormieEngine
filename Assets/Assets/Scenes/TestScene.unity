@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 13
-  m_BakeOnSceneLoad: 0
+  m_BakeOnSceneLoad: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -381,6 +381,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1310703028905277108, guid: f3fea16a2098a7142908880f33090256,
+        type: 3}
+      propertyPath: id
+      value: Spark
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310703028905277108, guid: f3fea16a2098a7142908880f33090256,
+        type: 3}
+      propertyPath: isUnlocked
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7064841580578684938, guid: f3fea16a2098a7142908880f33090256,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -435,6 +445,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Spark 2D Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8889462246468201978, guid: f3fea16a2098a7142908880f33090256,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2187,7 +2202,7 @@ PrefabInstance:
     - target: {fileID: 8889462246468201978, guid: caf2b6dd4c16e2048bb3bae1d8c351f1,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8922411838430375578, guid: caf2b6dd4c16e2048bb3bae1d8c351f1,
         type: 3}

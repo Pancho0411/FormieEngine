@@ -13281,6 +13281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashPlayerState: {fileID: 0}
   player: {fileID: 0}
+  playerName: Spark 2D Player
 --- !u!114 &4922151196756927081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13295,6 +13296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkPlayerState: {fileID: 0}
   player: {fileID: 0}
+  playerName: Spark 2D Player
 --- !u!114 &8735453305182191416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13309,6 +13311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idlePlayerState: {fileID: 0}
   player: {fileID: 0}
+  playerName: Spark 2D Player
 --- !u!114 &2642108044614148338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13323,6 +13326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpPlayerState: {fileID: 0}
   player: {fileID: 0}
+  playerName: Spark 2D Player
 --- !u!114 &5418927625302041856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23616,7 +23620,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3952742065659383505
 Transform:
   m_ObjectHideFlags: 0
@@ -36459,6 +36463,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   velocity: {x: 0, y: 0}
+  id: 
+  isUnlocked: 0
   disableInput: 0
   disableSkinRotation: 0
   disableCameraFollow: 0
